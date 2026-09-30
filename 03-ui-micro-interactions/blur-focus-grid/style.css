@@ -1,0 +1,36 @@
+section {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-start;
+}
+
+section .bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url(assets/Medellin.png);
+    background-size: cover;
+    transition: 1s;
+}
+
+section .logo {
+    position: relative;
+    z-index: 1;
+    width: 200px;
+    filter: blur(10px);
+    transition: 1s;
+}
+
+section .logo:hover {
+    transform: scale(2);
+    filter: blur(0);
+}
+
+section .logo:hover ~ .bg {
+    filter: blur(10px);
+    transform: scale(1.4);
+}

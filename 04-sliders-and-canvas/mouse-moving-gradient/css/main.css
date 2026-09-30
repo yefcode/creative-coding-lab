@@ -1,0 +1,37 @@
+body {
+  --xb: 100px;
+  --yb: 100px;
+  height: 100vh;
+  margin: 0;
+  display: -ms-grid;
+  display: grid;
+  place-items: center;
+  background: radial-gradient(circle at var(--xb) var(--yb), #b3ffff, #66b3ff);
+  color: #504949;
+}
+
+body::before {
+  content: ' ';
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: #e6ffe6;
+  width: var(--xb);
+  height: var(--yb);
+  -webkit-transition: all 1s;
+  transition: all 1s;
+}
+
+.card {
+  --xc: 300px;
+  --yc: 0;
+  background: radial-gradient(circle at var(--xc) var(--yc), #4dffff 0%, #00aaff 100%);
+  border-radius: 15px;
+  padding: 1em 2em;
+  width: 40%;
+}
+
+.card h1, .card p {
+  pointer-events: none;
+}
+/*# sourceMappingURL=main.css.map */

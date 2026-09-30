@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Mouse Moving Gradient - Custom Properties Dynamic</title>
+    <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+    <div class="card">
+        <h1>Yefcode</h1>
+        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Harum quibusdam eligendi odio exercitationem assumenda rem ipsam id molestias, atque recusandae consequuntur! Error ab ipsum quisquam nemo? Earum porro sapiente consequuntur?</p>
+    </div>
+    
+    <script>
+        document.querySelector('.card').onmousemove = (e) => {
+            //console.log('onmousemove', e);
+            //console.log('onmousemove e.pageX', e.pageX);
+            //console.log('onmousemove e.target.offsetLeft', e.target.offsetLeft);
+            //console.log('onmousemove e.offsetTop', e.target.offsetTop);
+            const x = e.pageX - e.target.offsetLeft;
+            const y = e.pageY - e.target.offsetTop;
+            e.target.style.setProperty('--xc', `${ x }px`)
+            e.target.style.setProperty('--yc', `${ y }px`)
+        }
+        document.querySelector('body').onmousemove = (e) => {
+            //console.log('event onclick', e);
+            e.target.style.setProperty('--xb', `${ e.pageX }px`)
+            e.target.style.setProperty('--yb', `${ e.pageY }px`)
+        }
+        /* var body = document.getElementsByTagName('body');
+        window.onmousemove = (e) => {
+            var x = e.clientX;
+            var y = e.clientY;
+            body[0].style.setProperty('--xb', x + 'px')
+            body[0].style.setProperty('--yb', y + 'px')
+        } */
+        document.querySelector('.card').onclick = (e) => {
+            console.log('onclick e.pageX', e.pageX);
+            console.log('onclick e.target.offsetLeft', e.target.offsetLeft);
+            console.log('onclick e.target.offsetTop', e.target.offsetTop);
+            const x = e.pageX - e.target.offsetLeft;
+            const y = e.pageY - e.target.offsetTop;
+        }
+        document.querySelector('body').onclick = (e) => {
+            //console.log('event onclick', e);
+            e.target.style.setProperty('--x', `${ e.pageX }px`)
+            e.target.style.setProperty('--y', `${ e.pageY }px`)
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,262 @@
+$rg-color-beginning: #78d5ff;
+$rg-color-ending: #0081e8;
+
+$cle1-b-color:#090909;
+$cle1-bs-color:rgb(255, 170, 170);
+$cle1-border-color: #ff0;
+$pe1-b-color: $cle1-border-color;
+$pe1-bs-color: $cle1-border-color;
+$pe1-bs2-color: rgba(255, 255, 0, .1);
+
+$cle2-b-color: $cle1-b-color;
+$cle2-bs-color: $cle1-bs-color;
+$cle2-border-color: #1000f5;
+$pe2-b-color: $cle2-border-color;
+$pe2-bs-color: $cle2-border-color;
+$pe2-bs2-color: rgba(3, 169, 244, .1);
+
+$p-b-color: #fff;
+
+//-------------------------------------
+$cp1-b-color: rgba(134, 255, 0, 1);
+$cp1-bs-color: $cp1-b-color;
+$cp1-bs2-color: rgba(134, 255, 0, .1);
+
+$cp2-b-color: rgba(255, 214, 0, 1);
+$cp2-bs-color: $cp2-b-color;
+$cp2-bs2-color: rgba(255, 214, 0, .1);
+
+$cp3-b-color: rgba(0, 226, 255, 1);
+$cp3-bs-color: $cp3-b-color;
+$cp3-bs2-color: rgba(0, 226, 255, .1);
+
+//-------------------------------------
+$b-circle-loading-color: #ffffff;
+$bs-color: rgba(0, 0, 0, .5);
+$cl-color: #fff000;
+$ts-color: $cl-color;
+$border-color: $cl-color;
+$b-rpe-color: $cl-color;
+
+//-------------------------------------
+@mixin loading-circle-line-effects($top, $left, $right, $bottom, 
+        $box-shadow, $animation) {
+    top: $top;
+    left: $left;
+    right: $right;
+    bottom: $bottom;
+    box-shadow: 0 0 10px $box-shadow;
+    animation: $animation;
+}
+
+@mixin point-effects-ex1($background, $box-shadow-color, $box-shadow2-color) {
+    transform: rotate(-45deg);
+
+    &::before {
+        background: $background;
+        box-shadow: 0 0 20px $box-shadow-color,
+                    0 0 40px $box-shadow-color,
+                    0 0 60px $box-shadow-color,
+                    0 0 80px $box-shadow-color,
+                    0 0 100px $box-shadow-color,
+                    0 0 0 5px $box-shadow2-color;
+    }
+}
+
+//-------------------------------------
+@mixin circle-line($top, $left, $right, $bottom, $animation) {
+    top: $top;
+    left: $left;
+    right: $right;
+    bottom: $bottom;
+    animation: animateCircle $animation;
+}
+
+@mixin point-effects-ex2($background, $cp-bs-color, $cp-bs2-color) {
+    background: $background;
+    box-shadow: 0 0 20px $cp-bs-color,
+                0 0 40px $cp-bs-color,
+                0 0 60px $cp-bs-color,
+                0 0 80px $cp-bs-color,
+                0 0 0 4px $cp-bs2-color;
+}
+
+//-------------------------------------
+@mixin loading-common-properties($top, $left, $width, $height) {
+    top: $top;
+    left: $left;
+    width: $width;
+    height: $height;
+}
+
+@mixin loading-common-properties-right($top, $right, $width, $height) {
+    top: $top;
+    right: $right;
+    width: $width;
+    height: $height;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    width: 100vw;
+    height: 100vh;
+    background:
+    radial-gradient($rg-color-beginning, $rg-color-ending);
+}
+
+.loading {
+    position: absolute;
+    transform: translate(-50%, -50%);
+}
+
+.loading__circle {
+    position: absolute;
+    border: 3px solid $b-circle-loading-color;
+    border-radius: 50%;
+}
+
+//-----------------------------------------------
+.loading--example1 {
+    @include loading-common-properties(50%, 20%, 200px, 200px);
+}
+
+.loading__circle--line-effect1 {
+    border-left: 2px solid $cle1-border-color;
+    border-top: 2px solid $cle1-border-color;
+
+    @include loading-circle-line-effects(0, 0, 0, 0, 
+            $cle1-bs-color, (animateCircle 3s linear infinite));
+}
+
+.loading__circle--line-effect2 {
+    border-right: 2px solid $cle2-border-color;
+    border-bottom: 2px solid $cle2-border-color;
+
+    @include loading-circle-line-effects(30px, 30px, 30px, 30px, 
+        $cle2-bs-color, (animateCircle 3s linear reverse infinite));
+}
+
+.point {
+    position: absolute;
+    transform-origin: left;
+    @include loading-common-properties(50%, 50%, 50%, 2px);
+
+    &::before {
+        content: '';
+        position: absolute;
+        border-radius: 50%;
+        background: $p-b-color;
+        @include loading-common-properties-right(-4px, -6px, 10px, 10px);
+    }
+}
+
+.point--effect1 {
+    @include point-effects-ex1($pe1-b-color, $pe1-bs-color, $pe1-bs2-color);
+}
+
+.point--effect2 {
+    @include point-effects-ex1($pe2-b-color, $pe2-bs-color, $pe2-bs2-color);
+}
+
+//-----------------------------------------------
+.loading--example2 {
+    @include loading-common-properties(50%, 50%, 260px, 260px);
+}
+
+.circle {
+    &::before {
+        content: '';
+        // common properties for points
+        position: absolute;
+        border-radius: 50%;
+        @include loading-common-properties(50%, -5px, 10px, 10px);
+    }
+
+    &:nth-child(1) {
+        @include circle-line(0, 0, 0, 0, (4s linear infinite));
+        &::before {
+            @include point-effects-ex2($cp1-b-color, $cp1-bs-color, $cp1-bs2-color);
+        }
+    }
+
+    &:nth-child(2) {
+        @include circle-line(40px, 40px, 40px, 40px, (3s linear reverse infinite));
+        &::before {
+            @include point-effects-ex2($cp2-b-color, $cp2-bs-color, $cp2-bs2-color);
+        }
+    }
+    
+    &:nth-child(3) {
+        @include circle-line(80px, 80px, 80px, 80px, (2s linear infinite));
+        &::before {
+            @include point-effects-ex2($cp3-b-color, $cp3-bs-color, $cp3-bs2-color);
+        }
+    }
+}
+
+//-----------------------------------------------
+.loading__circle-example3 {
+    line-height: 150px;
+    font-family: sans-serif;
+    font-size: 20px;
+    color: $cl-color;
+    letter-spacing: 4px;
+    box-shadow: 0 0 20px $bs-color;
+    @include loading-common-properties(50%, 80%, 150px, 150px);
+
+    text : {
+        align: center;
+        transform: uppercase;
+        shadow: 0 0 10px $ts-color;
+    }
+
+    &::before {
+        content: '';
+        position: absolute;
+        border: 3px solid transparent;
+        border-top: 3px solid $border-color;
+        border-right: 3px solid $border-color;
+        border-radius: 50%;
+        @include loading-common-properties(-3px, -3px, 100%, 100%);
+        animation: animateCircle 2s linear infinite;
+    }
+}
+
+.point-effect {
+    display: block;
+    position: absolute;
+    background: transparent;
+    transform-origin: left;
+    @include loading-common-properties(calc(50% - 2px), 50%, 50%, 4px);
+    animation: animate 2s linear infinite;
+
+    &::before {
+        content: '';
+        position: absolute;
+        border-radius: 50%;
+        background: $b-rpe-color;
+        box-shadow: 0 0 20px $b-rpe-color;
+        @include loading-common-properties-right(-6px, -8px, 16px, 16px);
+    }
+}
+
+//-----------------------------------------------
+
+@keyframes animate {
+    0% {
+        transform: rotate(45deg);
+    }
+    100% {
+        transform: rotate(405deg);
+    }
+}
+
+@keyframes animateCircle {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}

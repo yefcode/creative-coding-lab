@@ -57,12 +57,12 @@
 | :-: | :--- | :---: | :--- |
 | 10 | [`clip-path-card-reveal/`](./03-ui-micro-interactions/clip-path-card-reveal/) | 🎬 GIF | CSS `clip-path: circle()`, hover |
 | 11 | [`blur-focus-grid/`](./03-ui-micro-interactions/blur-focus-grid/) | 🎬 GIF | CSS `filter: blur()`, sibling selector |
-| 12 | [`glowing-buttons/`](./03-ui-micro-interactions/glowing-buttons/) | 🖼️ Img | CSS `box-shadow`, `radial-gradient` |
+| 12 | [`glowing-buttons/`](./03-ui-micro-interactions/glowing-buttons/) | 🎬 GIF | CSS `box-shadow`, `radial-gradient` |
 | 13 | [`card-hover-tilt/`](./03-ui-micro-interactions/card-hover-tilt/) | 🖼️ Img | CSS `perspective`, JS mouse-tracking |
 | 14 | [`image-distortion-hover/`](./03-ui-micro-interactions/image-distortion-hover/) | 🖼️ Img | CSS `scale`, `clip-path` en hover |
-| 15 | [`animated-menu-indicator/`](./03-ui-micro-interactions/animated-menu-indicator/) | 🖼️ Img | CSS `scaleX`, JS event delegation |
-| 16 | [`sidebar-smooth-scroll/`](./03-ui-micro-interactions/sidebar-smooth-scroll/) | 🖼️ Img | CSS `scroll-behavior: smooth`, JS |
-| 17 | [`split-text-hover/`](./03-ui-micro-interactions/split-text-hover/) | 🖼️ Img | CSS `translateY` en hover, `overflow: hidden` |
+| 15 | [`animated-menu-indicator/`](./03-ui-micro-interactions/animated-menu-indicator/) | 🎬 GIF | CSS `scaleX`, JS event delegation |
+| 16 | [`sidebar-smooth-scroll/`](./03-ui-micro-interactions/sidebar-smooth-scroll/) | 🎬 GIF | CSS `scroll-behavior: smooth`, JS |
+| 17 | [`split-text-hover/`](./03-ui-micro-interactions/split-text-hover/) | 🎬 GIF | CSS `translateY` en hover, `overflow: hidden` |
 
 ### 04 — Sliders y Canvas
 

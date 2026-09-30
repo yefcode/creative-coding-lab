@@ -1,0 +1,50 @@
+$bs-one-color: #78d5ff;
+$bs-two-color: #e0e0e0;
+$bs-three-color: #0081e8;
+$bs-four-color: #fff;
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.outer-wrapper {
+    width: 100vh;
+    height: 100vw;
+    transform: rotate(-90deg) translateX(-100vh);
+    transform-origin: top left;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    position: absolute;
+    scrollbar-width: none;
+}
+
+// TODO WHAT IS THIS WRAPPER FOR?
+.wrapper {
+    display: flex;
+    flex-direction: row;
+    width: 400vh;
+    transform: rotate(90deg) translateY(-100vh);
+    transform-origin: top left;
+}
+
+.slide {
+    width: 100vh;
+    height: 100vh;
+}
+
+.slide--one {
+    background: $bs-one-color;
+}
+
+.slide--two {
+    background: $bs-two-color;
+}
+
+.slide--three {
+    background: $bs-three-color;
+}
+
+.slide--four {
+    background: $bs-four-color;
+}

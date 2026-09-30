@@ -1,0 +1,214 @@
+body {
+  margin: 0;
+  padding: 0;
+  text-transform: uppercase;
+}
+
+.text-effects {
+  height: 100vh;
+}
+
+.text-effect {
+  height: 20%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.text-effect-ex1 {
+  font-size: 4em;
+}
+
+.text-effect-ex1 span:nth-child(1) {
+  position: absolute;
+  -webkit-transition: .5s;
+  transition: .5s;
+  -webkit-clip-path: polygon(0 0, 100% 0%, 100% 50%, 0 50%);
+          clip-path: polygon(0 0, 100% 0%, 100% 50%, 0 50%);
+}
+
+.text-effect-ex1 span:nth-child(2) {
+  position: absolute;
+  -webkit-transition: .5s;
+  transition: .5s;
+  -webkit-clip-path: polygon(0 50%, 100% 50%, 100% 100%, 0 100%);
+          clip-path: polygon(0 50%, 100% 50%, 100% 100%, 0 100%);
+}
+
+.text-effect-ex1 span:nth-child(3) {
+  -webkit-transform: translateY(-50%) scaleY(0);
+          transform: translateY(-50%) scaleY(0);
+  background: #c8feff;
+  font-size: .25em;
+  font-weight: 500;
+  letter-spacing: .7em;
+  padding-left: 20px;
+  margin-left: 5px;
+  -webkit-transition: .5s;
+  transition: .5s;
+}
+
+.text-effect-ex1:hover span:nth-child(1) {
+  -webkit-transform: translateY(-18px);
+          transform: translateY(-18px);
+}
+
+.text-effect-ex1:hover span:nth-child(2) {
+  -webkit-transform: translateY(18px);
+          transform: translateY(18px);
+}
+
+.text-effect-ex1:hover span:nth-child(3) {
+  -webkit-transform: translateY(-10%) scaleY(1);
+          transform: translateY(-10%) scaleY(1);
+}
+
+.text-effect-ex2 {
+  font-size: 4em;
+  color: #646464;
+}
+
+.text-effect-ex2 span:nth-child(even) {
+  color: #ff8181;
+  letter-spacing: -1em;
+  overflow: hidden;
+  -webkit-transition: .5s;
+  transition: .5s;
+}
+
+.text-effect-ex2:hover span:nth-child(even) {
+  letter-spacing: 0;
+}
+
+.text-effect__shining {
+  font-size: 4em;
+  letter-spacing: 5px;
+  background: -webkit-gradient(linear, left top, right top, from(#dad1fb), color-stop(#dcffbf), to(#ff9898));
+  background: linear-gradient(90deg, #dad1fb, #dcffbf, #ff9898);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-repeat: no-repeat;
+  background-size: 80%;
+  -webkit-animation: animate 2s linear infinite;
+          animation: animate 2s linear infinite;
+}
+
+@-webkit-keyframes animate {
+  0% {
+    background-position-x: -500%;
+  }
+  100% {
+    background-position-x: 500%;
+  }
+}
+
+@keyframes animate {
+  0% {
+    background-position-x: -500%;
+  }
+  100% {
+    background-position-x: 500%;
+  }
+}
+
+.text-effect__fill {
+  position: relative;
+  font-family: sans-serif;
+  font-size: 4em;
+  color: #646464;
+}
+
+.text-effect__fill:before {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  color: #ff5858;
+  width: 0;
+  overflow: hidden;
+  -webkit-transition: .5s;
+  transition: .5s;
+}
+
+.text-effect__fill:hover:before {
+  width: 100%;
+}
+
+.loader span {
+  color: #fff;
+  margin: 0 15px;
+  font-size: 4em;
+  font-weight: bold;
+  -webkit-animation: animate-ex5 2.4s linear infinite;
+          animation: animate-ex5 2.4s linear infinite;
+}
+
+.loader span:nth-child(1) {
+  -webkit-animation-delay: 0s;
+          animation-delay: 0s;
+}
+
+.loader span:nth-child(2) {
+  -webkit-animation-delay: 0.2s;
+          animation-delay: 0.2s;
+}
+
+.loader span:nth-child(3) {
+  -webkit-animation-delay: 0.4s;
+          animation-delay: 0.4s;
+}
+
+.loader span:nth-child(4) {
+  -webkit-animation-delay: 0.6s;
+          animation-delay: 0.6s;
+}
+
+.loader span:nth-child(5) {
+  -webkit-animation-delay: 0.8s;
+          animation-delay: 0.8s;
+}
+
+.loader span:nth-child(6) {
+  -webkit-animation-delay: 1s;
+          animation-delay: 1s;
+}
+
+.loader span:nth-child(7) {
+  -webkit-animation-delay: 1.2s;
+          animation-delay: 1.2s;
+}
+
+.loader span:nth-child(8) {
+  -webkit-animation-delay: 1.4s;
+          animation-delay: 1.4s;
+}
+
+.loader span:nth-child(9) {
+  -webkit-animation-delay: 1.6s;
+          animation-delay: 1.6s;
+}
+
+@-webkit-keyframes animate-ex5 {
+  0%, 80%, 100% {
+    text-shadow: 0 0 10px rgba(0, 0, 0, 0);
+  }
+  40% {
+    text-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  }
+}
+
+@keyframes animate-ex5 {
+  0%, 80%, 100% {
+    text-shadow: 0 0 10px rgba(0, 0, 0, 0);
+  }
+  40% {
+    text-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  }
+}
+/*# sourceMappingURL=main.css.map */

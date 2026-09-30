@@ -1,0 +1,155 @@
+$b-color: rgb(200, 254, 255);
+$color: rgb(100, 100, 100);
+$span-color: rgb(255, 129, 129);
+$b-linear-gradient-color-initial: rgb(218, 209, 251);
+$b-linear-gradient-color-second: rgb(220, 255, 191);
+$b-linear-gradient-color-final: rgb(255, 152, 152);
+$fill-color: rgb(255, 88, 88);
+
+body {
+    margin: 0;
+    padding: 0;
+    text-transform: uppercase;
+}
+
+.text-effects {
+    height: 100vh;
+}
+
+.text-effect {
+    height: 20%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+//-----------------------------------------
+.text-effect-ex1 {
+    font-size: 4em;
+
+    span:nth-child(1) {
+        position: absolute;
+        transition: .5s;
+        clip-path: polygon(0 0, 100% 0%, 100% 50%, 0 50%);
+    }
+
+    span:nth-child(2) {
+        position: absolute;
+        transition: .5s;
+        clip-path: polygon(0 50%, 100% 50%, 100% 100%, 0 100%);
+    }
+
+    span:nth-child(3) {
+        transform: translateY(-50%) scaleY(0);
+        background: $b-color;
+        font-size: .25em;
+        font-weight: 500;
+        letter-spacing: .7em;
+        padding-left: 20px;
+        margin-left: 5px;
+        transition: .5s;
+    }
+
+    &:hover {
+        span:nth-child(1) {
+            transform: translateY(-18px)
+        }
+
+        span:nth-child(2) {
+            transform: translateY(18px)
+        }
+
+        span:nth-child(3) {
+            transform: translateY(-10%) scaleY(1);
+        }
+    }
+}
+
+//-----------------------------------------
+.text-effect-ex2 {
+    font-size: 4em;
+    color: $color;
+
+    span:nth-child(even) {
+        color: $span-color;
+        letter-spacing: -1em;
+        overflow: hidden;
+        transition: .5s;
+    }
+
+    &:hover span:nth-child(even) {
+        letter-spacing: 0;
+    }
+}
+
+//-----------------------------------------
+
+.text-effect__shining {
+    font-size: 4em;
+    letter-spacing: 5px;
+    background: linear-gradient(90deg, 
+        $b-linear-gradient-color-initial, 
+        $b-linear-gradient-color-second, 
+        $b-linear-gradient-color-final);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-repeat: no-repeat;
+    background-size: 80%;
+    animation: animate 2s linear infinite;
+}
+
+@keyframes animate {
+    0% {
+        background-position-x: -500%;
+    }
+    100% {
+        background-position-x: 500%;
+    }
+}
+
+//-----------------------------------------
+.text-effect__fill {
+    position: relative;
+    font-family: sans-serif;
+    font-size: 4em;
+    color: $color;
+}
+
+.text-effect__fill:before {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    color: $fill-color;
+    width: 0;
+    overflow: hidden;
+    transition: .5s;
+}
+
+.text-effect__fill:hover:before {
+    width: 100%;
+}
+
+//-----------------------------------------
+.loader span {
+    color: #fff;
+    margin: 0 15px;
+    font-size: 4em;
+    font-weight: bold;
+    animation: animate-ex5 2.4s linear infinite;
+}
+
+@for $index from 0 to 9 {
+    .loader span:nth-child(#{$index + 1}) {
+        animation-delay: $index * .2s;
+    }
+}
+
+@keyframes animate-ex5 {
+    0%, 80%, 100% {
+        text-shadow: 0 0 10px rgba(0, 0, 0, 0);
+    }
+    40% {
+        text-shadow: 0 10px 20px rgba(0, 0, 0, .2);
+    }
+}

@@ -1,0 +1,87 @@
+body {
+  margin: 0;
+  padding: 0;
+  background: lightcyan;
+}
+
+.sliderShow {
+  width: 700px;
+  height: 400px;
+  overflow: hidden;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+
+.sliderShow .slides {
+  width: 500%;
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.sliderShow .slides .slide {
+  width: 20%;
+  -webkit-transition: .6s;
+  transition: .6s;
+}
+
+.sliderShow .slides .slide img {
+  width: 100%;
+  height: 100%;
+}
+
+.sliderShow .navigation {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.sliderShow .navigation .bar {
+  width: 50px;
+  height: 10px;
+  border: 2px solid #fff;
+  border-radius: 8px;
+  margin: 6px;
+  cursor: pointer;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.sliderShow .navigation .bar:hover {
+  background: #a0ffff;
+}
+
+input[name="r"] {
+  position: absolute;
+  visibility: hidden;
+}
+
+#r1:checked ~ .slide1 {
+  margin-left: 0;
+}
+
+#r2:checked ~ .slide1 {
+  margin-left: -20%;
+}
+
+#r3:checked ~ .slide1 {
+  margin-left: -40%;
+}
+
+#r4:checked ~ .slide1 {
+  margin-left: -60%;
+}
+
+#r5:checked ~ .slide1 {
+  margin-left: -80%;
+}
+/*# sourceMappingURL=main.css.map */

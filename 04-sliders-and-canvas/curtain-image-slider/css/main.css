@@ -1,0 +1,20 @@
+body {
+  margin: 0;
+  padding: 0;
+  width: 100vw;
+  height: 100vh;
+  background: url("/images/bridge-cascade-environment-358457.jpg");
+  background-repeat: no-repeat;
+}
+
+.content {
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  border-left: 2px solid #000;
+  border-top: 2px solid #000;
+  background: url("/images/cascade-daylight-environment-213950.jpg");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+/*# sourceMappingURL=main.css.map */

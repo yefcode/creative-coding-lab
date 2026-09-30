@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Background Slider</title>
+    <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+    <div id="slide" class="content"></div>
+    <script type="text/javascript">
+        var slide = document.getElementById('slide');
+        window.onmousemove = (e) => {
+            var x = e.clientX;
+            var y = e.clientY;
+            slide.style.left = x + 'px';
+            slide.style.top = y + 'px';
+        }
+    </script>
+</body>
+</html>

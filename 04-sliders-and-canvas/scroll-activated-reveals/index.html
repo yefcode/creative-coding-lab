@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>IntersectionObserver?! Scroll Activated Animations with No Dependencies</title>
+    <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+    <section>
+        <div class="scroll">
+            SCROLL DOWN!!! :DDD
+        </div>
+    </section>
+    <section class="content">
+        <div class="left">
+            <img src="images/beautiful-cascade-flow-514232.jpg" alt="yellow" class="yellow anim" data-delay="0s">
+            <p class="anim" data-delay=".5s">It's cool what I'm doing here :D!</p>
+            <img src="images/cascade-daylight-environment-213950.jpg" alt="squig" class="squig anim" data-delay=".7s">
+        </div>
+        <div class="right">
+            <div class="anim" data-delay="1s">
+                <h2>Get Yellow</h2>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem architecto pariatur illum provident amet delectus odit sunt non, quasi laboriosam accusantium ducimus corporis cum culpa. Doloremque dignissimos similique dolores placeat at aspernatur ab totam illo temporibus beatae, provident ipsum, eveniet dolor, laborum cumque laboriosam fugit natus veritatis. Harum, inventore fuga.</p>
+            </div>
+        </div>
+    </section>
+    <script>
+        /* const images = document.querySelector('.anim');
+        
+        observer = new IntersectionObserver((entries) => {
+            console.log(entries);
+
+            if (entries[0].intersectionRatio > 0) {
+                entries[0].target.style.animation = 'anim1 2s forwards ease-out';
+            } else {
+                entries[0].target.style.animation = 'none';
+            }
+        });
+
+        observer.observe(images) */
+
+
+        const images = document.querySelectorAll('.anim');
+        
+        observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.intersectionRatio > 0) {
+                    entry.target.style.animation = `anim1 2s ${entry.target.dataset.delay} forwards ease-out`;
+                } else {
+                    entry.target.style.animation = 'none';
+                }
+            });
+        });
+
+        images.forEach(image => {
+            observer.observe(image);
+        });
+    </script>
+</body>
+</html>
